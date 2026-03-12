@@ -1,34 +1,108 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    { title: "Premium Auto Detailing", desc: "Showroom finish, every single time.", bg: "#1a1a24" },
-    { title: "Deep Washing & Cleaning", desc: "Meticulous interior and exterior care.", bg: "#1e272e" },
-    { title: "Paint Protection Film (PPF)", desc: "Shield your investment from the elements.", bg: "#2f3542" }
+    {
+      title: "Premium Auto Detailing",
+      desc: "Showroom finish, every single time.",
+      img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+    },
+    {
+      title: "Deep Washing & Cleaning",
+      desc: "Meticulous interior and exterior care.",
+      img: "https://images.unsplash.com/photo-1607860108855-64acf2078ed9"
+    },
+    {
+      title: "Paint Protection Film",
+      desc: "Shield your investment from the elements.",
+      img: "https://images.unsplash.com/photo-1493238792000-8113da705763"
+    }
   ];
 
-  // Auto-play the slider every 4 seconds
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, 4000);
+      setCurrentSlide(prev =>
+        prev === slides.length - 1 ? 0 : prev + 1
+      );
+    }, 5000);
+
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, []);
+
+  const scrollTo = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <div style={{ height: '70vh', width: '100%', position: 'relative', overflow: 'hidden', backgroundColor: slides[currentSlide].bg, color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background-color 0.8s ease' }}>
-      <div style={{ textAlign: 'center', zIndex: 2 }}>
-        <h1 style={{ fontSize: '4rem', margin: '0 0 1rem 0' }}>{slides[currentSlide].title}</h1>
-        <p style={{ fontSize: '1.5rem', margin: 0 }}>{slides[currentSlide].desc}</p>
-      </div>
-      
-      {/* Slide Indicators */}
-      <div style={{ position: 'absolute', bottom: '20px', display: 'flex', gap: '10px' }}>
-        {slides.map((_, index) => (
-          <div key={index} style={{ height: '12px', width: '12px', borderRadius: '50%', backgroundColor: currentSlide === index ? '#d32f2f' : 'rgba(255,255,255,0.5)', cursor: 'pointer' }} onClick={() => setCurrentSlide(index)} />
-        ))}
+    <div
+      style={{
+        height: "90vh",
+        width: "100%",
+        position: "relative",
+        backgroundImage: `url(${slides[currentSlide].img})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }}
+    >
+      {/* Dark overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85))"
+        }}
+      />
+
+      <div style={{ textAlign: "center", color: "white", zIndex: 2 }}>
+        <h1 style={{ fontSize: "4rem", marginBottom: "1rem" }}>
+          {slides[currentSlide].title}
+        </h1>
+
+        <p style={{ fontSize: "1.4rem", marginBottom: "2rem" }}>
+          {slides[currentSlide].desc}
+        </p>
+
+        <div style={{ display: "flex", gap: "20px", justifyContent: "center" }}>
+
+          <button
+            onClick={() => scrollTo("booking")}
+            style={{
+              padding: "12px 25px",
+              background: "#d32f2f",
+              border: "none",
+              color: "white",
+              borderRadius: "6px",
+              fontSize: "16px",
+              cursor: "pointer"
+            }}
+          >
+            Book Now
+          </button>
+
+          <button
+            onClick={() => scrollTo("services")}
+            style={{
+              padding: "12px 25px",
+              border: "1px solid white",
+              background: "transparent",
+              color: "white",
+              borderRadius: "6px",
+              fontSize: "16px",
+              cursor: "pointer"
+            }}
+          >
+            Explore Services
+          </button>
+
+        </div>
       </div>
     </div>
   );
