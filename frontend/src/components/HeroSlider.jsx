@@ -22,14 +22,14 @@ export default function HeroSlider() {
   ];
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide(prev =>
-        prev === slides.length - 1 ? 0 : prev + 1
-      );
-    }, 5000);
+  const timer = setInterval(() => {
+    setCurrentSlide(prev =>
+      prev === slides.length - 1 ? 0 : prev + 1
+    );
+  }, 5000);
 
-    return () => clearInterval(timer);
-  }, []);
+  return () => clearInterval(timer);
+}, [slides.length]);
 
   const scrollTo = (id) => {
     const section = document.getElementById(id);
