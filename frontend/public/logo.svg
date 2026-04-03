@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="200" height="200" fill="#080808" rx="16"/>
+
+  <!-- Diagonal slash texture -->
+  <polygon points="60,0 100,0 140,200 100,200" fill="#1a0000"/>
+
+  <!-- Red slash -->
+  <polygon points="62,30 88,30 112,170 86,170" fill="#c0392b"/>
+  <!-- White slash -->
+  <polygon points="92,30 118,30 142,170 116,170" fill="white"/>
+
+  <!-- Red dot top -->
+  <circle cx="75" cy="20" r="6" fill="#c0392b"/>
+
+  <!-- SPARK text -->
+  <text x="100" y="152" font-family="Arial Black,Arial,sans-serif" font-size="14"
+        font-weight="900" fill="white" text-anchor="middle" letter-spacing="2">SPARK</text>
+  <text x="100" y="168" font-family="Arial Black,Arial,sans-serif" font-size="14"
+        font-weight="900" fill="#c0392b" text-anchor="middle" letter-spacing="2">LINE</text>
+
+  <rect x="40" y="172" width="120" height="1.5" fill="#c0392b" opacity="0.5"/>
+
+  <text x="100" y="185" font-family="Arial,sans-serif" font-size="7"
+        fill="#666" text-anchor="middle" letter-spacing="3">AUTO DETAILING</text>
+</svg>

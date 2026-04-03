@@ -47,12 +47,10 @@ export default function Navbar() {
       }}>
         {/* Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: "12px", cursor: "pointer" }} onClick={() => scrollTo("home")}>
-          <div style={{
-            width: 36, height: 36, background: "var(--crimson)",
-            borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 14, fontWeight: 900, color: "white", fontFamily: "var(--font-display)", letterSpacing: 1,
-            boxShadow: "0 0 20px rgba(192,57,43,0.5)"
-          }}>SL</div>
+         <img src="/logo.svg" alt="Sparkline Auto" style={{
+  width: 44, height: 44, borderRadius: 8,
+  boxShadow: "0 0 20px rgba(192,57,43,0.4)"
+}} />
           <div>
             <div style={{ fontFamily: "var(--font-display)", fontSize: 18, letterSpacing: 3, lineHeight: 1 }}>SPARKLINE</div>
             <div style={{ fontSize: 9, letterSpacing: 4, color: "#888", textTransform: "uppercase", lineHeight: 1 }}>AUTO DETAILING</div>
