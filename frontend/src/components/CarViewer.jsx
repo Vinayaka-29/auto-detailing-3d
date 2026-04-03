@@ -105,7 +105,12 @@ export default function CarViewer() {
       </div>
 
       <div style={{ height: 500 }}>
-        <Canvas camera={{ position: [4, 2, 5], fov: 35 }} shadows>
+       <Canvas camera={{ position: [4, 2, 5], fov: 35 }} shadows
+  style={{ touchAction: "none" }}
+  onCreated={({ gl }) => {
+    gl.domElement.style.touchAction = "auto";
+  }}
+>
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 5]} intensity={1.5} castShadow
             shadow-mapSize={[2048, 2048]} />
@@ -118,15 +123,17 @@ export default function CarViewer() {
             <Environment preset="city" />
           </Suspense>
 
-          <OrbitControls
-            enablePan={false}
-            minPolarAngle={Math.PI / 8}
-            maxPolarAngle={Math.PI / 2.3}
-            minDistance={3}
-            maxDistance={9}
-            autoRotate
-            autoRotateSpeed={0.5}
-          />
+         <OrbitControls
+  enablePan={false}
+  minPolarAngle={Math.PI / 8}
+  maxPolarAngle={Math.PI / 2.3}
+  minDistance={3}
+  maxDistance={9}
+  autoRotate
+  autoRotateSpeed={0.5}
+  touches={{ ONE: 2, TWO: 1 }}
+  enableZoom={false}
+/>
         </Canvas>
       </div>
 
