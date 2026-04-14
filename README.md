@@ -1,4 +1,4 @@
-# CarWash Connect 🚗💦
+# CarWash Connect 🚗
 
 > Swiggy/Zomato-style marketplace for car wash & auto detailing — built for India.
 
